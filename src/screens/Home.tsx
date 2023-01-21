@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
-import { Text, View, ScrollView, Alert } from "react-native";
+import { useCallback, useEffect, useState } from 'react';
+import { Text, View, ScrollView, Alert } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native'
 
-import { HabitDay, DAY_SIZE } from "../components/HabitDay";
-import { Loading } from "../components/Loading";
-import { Header } from "../components/Header";
 
-import { useNavigation } from "@react-navigation/native";
+import { HabitDay, DAY_SIZE } from '../components/HabitDay';
+import { Loading } from '../components/Loading';
+import { Header } from '../components/Header';
 
-import { api } from "../lib/axios";
-import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates";
+import { useNavigation } from '@react-navigation/native';
+
+import { api } from '../lib/axios';
+import { generateRangeDatesFromYearStart } from '../utils/generate-range-between-dates';
 import dayjs from "dayjs";
 
 const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
@@ -43,8 +45,12 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetchDate()
+    
   }, [])
+
+  useFocusEffect(useCallback(() => {
+    fetchDate()
+  }, []))
 
   
   if(loading) {
