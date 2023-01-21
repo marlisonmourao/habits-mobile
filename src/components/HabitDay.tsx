@@ -21,7 +21,6 @@ export function HabitDay({amountCompleted = 0, amountOfHabits = 0, date, ...rest
   ? gerenateProgressPorcentage(amountOfHabits, amountCompleted) 
   : 0;
   const today = dayjs().startOf('day').toDate();
-  console.log(today);
   const isCurentDay = dayjs(date).isSame(today)
 
   return(

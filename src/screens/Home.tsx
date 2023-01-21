@@ -80,8 +80,6 @@ export function Home() {
               const dayWithHabits = summary.find(day => {
                 return dayjs(date).isSame(day.date, 'day')
               })
-
-              console.log(dayWithHabits)
   
               return (
                 <HabitDay 
